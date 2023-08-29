@@ -1,5 +1,5 @@
 import styles from "./login.module.scss"
-import BasicButton from "../login/index.jsx"
+import BasicButton from "../basicButton/index.jsx"
 
 export default function Login() {
     return (
