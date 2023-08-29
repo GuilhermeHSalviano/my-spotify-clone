@@ -1,0 +1,30 @@
+@import "../../generalMixins.scss";
+@import "../../generalVariables.scss";
+
+.container{
+    @include basic__centered__container;
+
+    background-image: linear-gradient(rgb(27, 27, 27), black);
+    height: 87vh;
+    width: 100vw;
+
+    .container__login{
+        @include basic__centered__container;
+           
+        background-color: black;
+        border-radius: 10px;
+        flex-direction: column;
+        height: 80%;
+        width: 40%;
+
+        h1{
+            @include white__spotify__font(32px);
+            display: inline;
+        }
+
+        h2{
+            @include white__spotify__font;
+        }
+        
+    }
+}

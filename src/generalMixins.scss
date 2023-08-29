@@ -1,0 +1,19 @@
+@import "./generalVariables.scss";
+
+//fonts
+
+@mixin white__spotify__font($font-size: 15px){
+    color: $white-font-color;
+    font-size: $font-size;
+    font-weight: 800;
+
+}
+
+//containers
+
+@mixin basic__centered__container{
+    align-items: center;
+    display: flex;
+    justify-content: center;    
+}
+
