@@ -11,6 +11,7 @@
     .container__words{
         @include white__spotify__font(24px);
 
+        font-family: $main-title;
         margin-left: 2rem;
     }
 }

@@ -20,10 +20,14 @@
         h1{
             @include white__spotify__font(32px);
             display: inline;
+            font-family: $main-title;
+            margin: 0.5em
         }
 
         h2{
             @include white__spotify__font;
+
+            font-family: 'Lato', sans-serif;
         }
         
     }

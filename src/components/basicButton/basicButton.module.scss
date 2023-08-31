@@ -1,0 +1,27 @@
+@import "../../generalVariables.scss";
+
+.container__button{
+    background-color: $spotify-green;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    height: 2.01rem;
+    font-weight: 800;
+    margin: 2rem;
+    width: 15rem;
+
+    a{
+        color: black;
+        display: block;
+        padding: 0.6em 0.6em;
+        text-decoration: inherit;
+    }
+ 
+    a:visited{
+        color: inherit;
+    }
+}
+
+.container__button:hover{
+    background-color: $spotify-green-hover;
+}
