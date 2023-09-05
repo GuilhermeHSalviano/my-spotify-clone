@@ -26,19 +26,11 @@ class App extends React.Component{
 	render(){
 		return(
 			<>
-				<HomePage></HomePage>
-				{/*<button>
-					<a  href="http://localhost:8888"> Logar com Spotify</a>
-				/button>?*/}
-				
+				<HomePage></HomePage>				
 			</>		
 		)
 	}
 }
-
-
-
-
 
 export default App
 
