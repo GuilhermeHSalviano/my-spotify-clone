@@ -1,5 +1,5 @@
 import React from "react";
-import HomePage from "./pages/homePage";
+import HomePage from "./pages/loginPage";
 
 import "./reset.scss"
 

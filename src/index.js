@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.jsx';
-import Teste from "./pages/mainPage/index.jsx"
+import Teste from "./pages/homePage/index.jsx"
 
 import {
   createBrowserRouter,
@@ -11,7 +11,7 @@ import {
 
 const router = createBrowserRouter([
   {path: "/", element: <App/>,},
-  {path: "/main", element: <Teste/> }
+  {path: "/home", element: <Teste/> }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

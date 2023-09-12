@@ -1,11 +1,12 @@
-import MyHeader from "../../components/header/index.jsx"
-import Login from "../../components/login/index.jsx"
+import Header from "../../components/header/index.jsx"
+import LeftMenu from "../../components/leftMenu/index.jsx"
+import styles from "./homePage.module.scss"
 
 export default function HomePage() {
-  return (
-    <>
-        <MyHeader/>
-        <Login/>
-    </>
-  )
+	return (
+		<main className={styles.container}>
+			<Header/>
+			<LeftMenu/>
+		</main>
+	)
 }
