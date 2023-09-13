@@ -26,4 +26,26 @@
             margin: 0 10px 0 10px;
         }
     }
+
+    .container__button-active {
+        color: $white-font-color;
+        .container__icon{
+            @extend .container__button-active
+        }
+    }
+
+    .container__button:hover{
+        cursor: pointer;
+        opacity: 50%;
+        transition-duration: 0.6s;
+        transition-timing-function: ease-in-out;
+        
+        .container__icon{
+            cursor: pointer;
+            opacity: 50%;
+            transition-duration: 0.6s;
+            transition-timing-function: ease-in-out;
+        }
+    }    
 }
+
