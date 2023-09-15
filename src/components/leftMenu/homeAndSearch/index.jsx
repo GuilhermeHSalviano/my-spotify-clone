@@ -28,3 +28,7 @@ export default function HomeAndSearch() {
     </div>
   )
 }
+
+/*In 23 line we have an exemple of how to call two functions inside a arrow function of onClick.
+Note that is needed a semicolon between the functions.
+*/

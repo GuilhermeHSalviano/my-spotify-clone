@@ -2,15 +2,7 @@
 @import "../../../generalVariables.scss";
 
 .container{
-    align-items: center;
-    background-color: $secondary-background;
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    margin-left: 7px;
-    height: 7rem;
-    justify-content: center;
-    width: 100%;
+    @include left__menu__containers(20%);
 
     .container__button{
         background-color: transparent;
