@@ -1,7 +1,7 @@
 import styles from "./playlists.module.scss"
-import {getPlaylist, getToken} from "../../../../functions.js"
+import {getMyPlaylist, getToken} from "../../../../functions.js"
 
-getToken()
+getMyPlaylist("https://api.spotify.com/v1/me/playlists")
 
 export default function Playlists() {
   return (
