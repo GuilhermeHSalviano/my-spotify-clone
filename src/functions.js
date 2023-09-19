@@ -3,17 +3,18 @@ const accessTokenURL = `https://accounts.spotify.com/api/token`
 
 export const getToken = () => {
     let accessToken = document.location.hash
-    return accessToken.replace("#access_token=", "")
-
+    let rawAccessToken = accessToken.replace("#access_token=", "")
+    sessionStorage.setItem("token", JSON.stringify(rawAccessToken))
 }
 
 export const getMyPlaylist = async (playlistEndpoint) => {
+
     let response = await fetch(playlistEndpoint, {
         method: 'GET',
         headers:{
-            Authorization: `Bearer ${getToken()}`
+            Authorization: `Bearer ${JSON.parse(sessionStorage.getItem("token"))}`
         }
     })
-
-    console.log(await response.json())
+    let playlists = await response.json()
+    return playlists
 }
