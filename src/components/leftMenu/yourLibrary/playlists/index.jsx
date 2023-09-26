@@ -9,15 +9,25 @@ export default function Playlists() {
 
 	async function settingPlaylistsToState(){
 		let playlists = await getMyPlaylist("https://api.spotify.com/v1/me/playlists")
-		setPlaylists(playlists.items)
+			setPlaylists(playlists.items)
+		
 	}
 
-	const [playlists, setPlaylists] = useState('')
-
+	const [playlists, setPlaylists] = useState([])
 	useEffect( () => {
 		settingPlaylistsToState()
+		debugger
 	}, [])
+
 	return (
-		<div className={styles.container}>index</div>
+		<ul className={styles.container}> {playlists.map((playlist) => 
+			<li className={styles.container__list} key={playlist.id}>
+				<img className={styles.list__img} src={playlist.images[0].url} alt="" />
+				<div className={styles.list__info}>
+					<p className={styles.info__name}>{playlist.name}</p>
+					<p  className={styles.info__owner} >{playlist.owner.display_name}</p>
+				</div>
+			</li>
+		 )}</ul>
 	)
 }

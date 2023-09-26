@@ -1,6 +1,4 @@
 
-const accessTokenURL = `https://accounts.spotify.com/api/token`
-
 export const getToken = () => {
     let accessToken = document.location.hash
     let rawAccessToken = accessToken.replace("#access_token=", "")
