@@ -18,15 +18,13 @@ class App extends React.Component{
 		while ( e = r.exec(q)) {
 		   hashParams[e[1]] = decodeURIComponent(e[2]);
 		}
-
-		console.log(this.token)
 		return hashParams;
 	}
 
 	render(){
 		return(
 			<>
-				<HomePage></HomePage>				
+				<HomePage></HomePage>
 			</>		
 		)
 	}

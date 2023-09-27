@@ -4,20 +4,22 @@ import { useEffect } from "react"
 import { useState } from "react"
 
 
-
 export default function Playlists() {
 
+	const [playlists, setPlaylists] = useState([])
+
 	async function settingPlaylistsToState(){
+		if(!sessionStorage.getItem('token')) return
 		let playlists = await getMyPlaylist("https://api.spotify.com/v1/me/playlists")
 			setPlaylists(playlists.items)
 		
 	}
 
-	const [playlists, setPlaylists] = useState([])
 	useEffect( () => {
 		settingPlaylistsToState()
-		debugger
-	}, [])
+	}, [playlists])
+
+	//if(!playlists) return ''
 
 	return (
 		<ul className={styles.container}> {playlists.map((playlist) => 
