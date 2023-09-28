@@ -2,8 +2,10 @@
 const accessTokenURL = `https://accounts.spotify.com/api/token`
 
 export const setToken = () => {
-    let accessToken = document.location.hash
-    let rawAccessToken = accessToken.replace("#access_token=", "")
+
+   let accessToken = document.location.pathname
+    let rawAccessToken = accessToken.replace("/home/access_token=", "")
+    console.log(document.location.search)
     sessionStorage.setItem("token", JSON.stringify(rawAccessToken))
 }
 

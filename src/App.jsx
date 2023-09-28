@@ -1,35 +1,20 @@
-import React from "react";
-import HomePage from "./pages/loginPage";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from "./pages/homePage/index.jsx";
+import LoginPage from './pages/loginPage/index.jsx'
 
 import "./reset.scss"
 
-class App extends React.Component{
-	constructor(props){
-		super(props)
-		const params = this.getHashParams()
-		const token = params.access_token
-		this.state = token
-	}
-
-	getHashParams() {
-		var hashParams = {};
-		var e, r = /([^&;=]+)=?([^&;]*)/g,
-			q = window.location.hash.substring(1);
-		while ( e = r.exec(q)) {
-		   hashParams[e[1]] = decodeURIComponent(e[2]);
-		}
-		return hashParams;
-	}
-
-	render(){
-		return(
-			<>
-				<HomePage></HomePage>
-			</>		
-		)
-	}
+export default function App() {
+  	return (
+		<Routes>
+			<Route path='/' element={<LoginPage/>}/>
+			<Route path='/home/:access_token'  element={<HomePage/>}/>
+		</Routes>
+		
+  	)
 }
 
-export default App
+	
+
 
 
