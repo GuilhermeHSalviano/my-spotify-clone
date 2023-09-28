@@ -2,6 +2,6 @@ import styles from "./homeInfo.module.scss"
 
 export default function HomeInfo() {
   return (
-    <div className={styles.container}></div>
+    <div className={styles.container}>teste</div>
   )
 }

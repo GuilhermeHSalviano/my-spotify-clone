@@ -13,20 +13,21 @@ export default function HomeAndSearch() {
   return (
     <div className={styles.container}>
         <Link 
-			to='/home/info'
-			className={`${styles.container__button} ${home? styles["container__button-active"] : ""}`}
+			to='/home/:access_token'
+			className={`${styles.container__link} ${home? styles["container__button-active"] : ""}`}
 			onClick={() =>{setHome(true); setSearch(false)}}
-        >
-        <FontAwesomeIcon className={styles.container__icon} icon={faHouse} />
-            Home
+			>
+			<FontAwesomeIcon className={styles.container__icon} icon={faHouse} />
+			<p>Home</p>
         </Link>
-        <button 
-			className={`${styles.container__button} ${search? styles["container__button-active"] : ""}` }
+        <Link 
+			to='/home/:access_token/search'
+			className={`${styles.container__link} ${search? styles["container__button-active"] : ""}` }
 			onClick={() =>{setHome(false); setSearch(true)}}
-		>
-            <FontAwesomeIcon className={styles.container__icon} icon={faMagnifyingGlass} />
+        >
+          <FontAwesomeIcon className={styles.container__icon} icon={faMagnifyingGlass} />
             Search
-        </button>
+        </Link>
     </div>
   )
 }

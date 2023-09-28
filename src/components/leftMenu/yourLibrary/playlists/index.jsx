@@ -17,7 +17,7 @@ export default function Playlists() {
 		settingPlaylistsToState();
 	};
 
-	  if(!sessionStorage.getItem('token')){
+	  if(playlists == undefined){
 		return ''
 	  } else{
 		return (

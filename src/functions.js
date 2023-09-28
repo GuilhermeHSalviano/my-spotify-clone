@@ -5,7 +5,6 @@ export const setToken = () => {
 
    let accessToken = document.location.pathname
     let rawAccessToken = accessToken.replace("/home/access_token=", "")
-    console.log(document.location.search)
     sessionStorage.setItem("token", JSON.stringify(rawAccessToken))
 }
 
