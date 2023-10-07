@@ -23,13 +23,15 @@ export const getMyPlaylist = async (playlistEndpoint, token) => {
     return playlists
 }
 
-export const getPlaylistById = async (playlistIdEndpoint, token, id) => {
-    let response = await fetch(`${baseURL + playlistIdEndpoint + id}`, {
+export const getPlaylistById = async (id) => {
+    let token = getToken()
+    let response = await fetch(`${baseURL + '/playlists/' + id}`, {
         method: 'GET',
         headers: {
             Authorization: `Bearer ${token}`
         }
     })
     let playlist = await response.json()
-    return playlist
+    console.log(playlist)
 }
+
