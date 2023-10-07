@@ -1,22 +1,11 @@
 import styles from "./playlists.module.scss"
-import {getMyPlaylist, setToken} from "../../../../functions.js"
 import { useState } from "react"
-
+import { useContext } from "react"
+import { playlistsContext } from "../../../../pages/homePage/index.jsx"
 
 export default function Playlists() {
-	let [playlists, setPlaylists] = useState([])
+	let [playlists, setPlaylists] = useState(useContext(playlistsContext))
 	
-
-	async function settingPlaylistsToState(){
-		setToken()
-		let token = JSON.parse(sessionStorage.getItem('token'))
-		let playlists = await getMyPlaylist("https://api.spotify.com/v1/me/playlists", token)
-		setPlaylists(playlists.items)
-	}
-	window.onload = () => {
-		settingPlaylistsToState();
-	};
-
 	  if(playlists == undefined){
 		return ''
 	  } else{

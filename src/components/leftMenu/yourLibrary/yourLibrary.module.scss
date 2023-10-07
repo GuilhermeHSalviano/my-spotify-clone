@@ -3,7 +3,7 @@
 
 
 .container{
-    @include left__menu__containers(80%);
+    @include left__menu__containers(calc(80% - 7px));
 
     justify-content: flex-start;
     margin-top: 7px;

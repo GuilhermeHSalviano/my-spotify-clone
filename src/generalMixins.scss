@@ -18,14 +18,18 @@
 }
 
 @mixin left__menu__containers($height-size: auto){
+    @include grey__box;
     align-items: center;
-    background-color: $secondary-background;
-    border-radius: 10px;
-    display: flex;
     flex-direction: column;
     height: $height-size;
     justify-content: center;
     width: 100%;
+}
+
+@mixin grey__box{
+    background-color: $secondary-background;
+    border-radius: 10px;
+    display: flex;
 }
 
 
