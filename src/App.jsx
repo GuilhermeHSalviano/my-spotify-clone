@@ -5,7 +5,7 @@ import HomeInfo from './components/homeInfo/index.jsx'
 import Search from "./components/search/index.jsx";
 import "./reset.scss"
 import { useState } from "react";
-import { setToken, getMyPlaylist } from "./functions.js";
+import { setToken, getMyPlaylist, getToken } from "./functions.js";
 
 
 export default function App() {
@@ -13,7 +13,7 @@ export default function App() {
 
 	async function settingPlaylistsToState(){
 		setToken()
-		let token = JSON.parse(sessionStorage.getItem('token'))
+		let token = getToken()
 		let playlists = await getMyPlaylist("https://api.spotify.com/v1/me/playlists", token)
 		setPlaylists(playlists.items)
 	}
