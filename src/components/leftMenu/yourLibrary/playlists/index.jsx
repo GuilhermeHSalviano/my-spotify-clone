@@ -7,11 +7,11 @@ import { getPlaylistById } from "../../../../functions.js"
 
 export default function Playlists() {
 	let [playlists, setPlaylists] = useState(useContext(playlistsContext))
-	let [playlist, setPlaylist] = useState('')
+	let [mySelectedPlaylist, setMySelectedPlaylist] = useState('')
 
 	async function selectPlaylist(id){
 		let selectedPlaylist = await getPlaylistById(id)
-		setPlaylist(selectedPlaylist)
+		setMySelectedPlaylist(selectedPlaylist)
 	}
 	
 	  if(playlists == undefined){
@@ -20,7 +20,8 @@ export default function Playlists() {
 		return (
 			<ul className={styles.container} data-ul> {playlists.map((playlist) => 
 				<Link 
-					to='/home/:access_token/selectedPlaylist' 
+					to='/home/:access_token/selectedPlaylist'
+					state={{date: mySelectedPlaylist}}
 					className={styles.container__link}
 					onClick={()=> selectPlaylist(playlist.id)}
 				>
