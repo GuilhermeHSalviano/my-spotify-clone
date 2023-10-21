@@ -2,9 +2,14 @@ const baseURL = "https://api.spotify.com/v1"
 
 export const setToken = () => {
 
-   let accessToken = document.location.pathname
+    let accessToken = document.location.pathname
     let rawAccessToken = accessToken.replace("/home/access_token=", "")
-    sessionStorage.setItem("token", JSON.stringify(rawAccessToken))
+    if(rawAccessToken.length < 2){
+        return false
+    } else{
+        sessionStorage.setItem("token", JSON.stringify(rawAccessToken))
+        return true
+    }
 }
 
 export const getToken = () =>{
@@ -32,6 +37,6 @@ export const getPlaylistById = async (id) => {
         }
     })
     let playlist = await response.json()
-    console.log(playlist)
+    return playlist
 }
 

@@ -1,0 +1,11 @@
+@import '../../generalMixins.scss';
+@import '../../generalVariables.scss';
+
+.container{
+    @include grey__box;
+
+    height: 83vh;
+    margin-left: 7px;
+    width: calc(75vw - 7px);
+    
+}

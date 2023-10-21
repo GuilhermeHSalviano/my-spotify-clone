@@ -8,11 +8,16 @@
    overflow: auto;
    width: 100%; 
 
+   .container__link{
+      text-decoration: none;
+   }
+
    .container__list{
       cursor: pointer;
       border-radius: 10px;
       display: flex;
       padding: .4em 0 .4em 0;
+      text-decoration: none;
       width: 100%;
 
       .list__img{
