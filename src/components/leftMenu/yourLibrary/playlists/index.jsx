@@ -4,14 +4,15 @@ import { useContext } from "react"
 import { playlistsContext } from "../../../../pages/homePage/index.jsx"
 import { Link } from "react-router-dom"
 import { getPlaylistById } from "../../../../functions.js"
+import { useNavigate } from "react-router-dom";
 
 export default function Playlists() {
-	let [playlists, setPlaylists] = useState(useContext(playlistsContext))
-	let [mySelectedPlaylist, setMySelectedPlaylist] = useState('')
+	let [playlists] = useState(useContext(playlistsContext))
+	const navigate = useNavigate()
 
 	async function selectPlaylist(id){
 		let selectedPlaylist = await getPlaylistById(id)
-		setMySelectedPlaylist(selectedPlaylist)
+		navigate('/home/:access_token/selectedPlaylist', {state: selectedPlaylist})
 	}
 	
 	  if(playlists == undefined){
@@ -20,8 +21,6 @@ export default function Playlists() {
 		return (
 			<ul className={styles.container} data-ul> {playlists.map((playlist) => 
 				<Link 
-					to='/home/:access_token/selectedPlaylist'
-					state={{date: mySelectedPlaylist}}
 					className={styles.container__link}
 					onClick={()=> selectPlaylist(playlist.id)}
 				>

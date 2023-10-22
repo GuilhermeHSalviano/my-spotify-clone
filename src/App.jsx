@@ -30,8 +30,8 @@ export default function App() {
 			<Route path='/' element={<LoginPage/>} index/>
 			<Route path='/home/:access_token' Component={()=> <HomePage playlists={playlists}/>}>
 				<Route path='/home/:access_token' index Component={()=> <HomeInfo playlists={playlists}/>}></Route>
-				<Route path="/home/:access_token/search" element={<Search/>} ></Route>
-				<Route path="/home/:access_token/selectedPlaylist" element={<SelectedPlaylist/>} ></Route>
+				<Route path='/home/:access_token/search' element={<Search/>} ></Route>
+				<Route path='/home/:access_token/selectedPlaylist' element={<SelectedPlaylist/>} ></Route>
 			</Route>
 		</Routes>
   	)

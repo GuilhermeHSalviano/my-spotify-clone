@@ -4,8 +4,56 @@
 .container{
     @include grey__box;
 
+    flex-direction: column;
     height: 83vh;
     margin-left: 7px;
     width: calc(75vw - 7px);
+
+    .container__playlist{
+        align-items: center;
+        display: flex;
+        height: 50%;
+        width: 100%;
+
+        .container__img{
+            border-radius: 5px;
+            margin-left: 15px;
+            object-fit: contain;
+            height: 70%;
+        }
+
+        .container__playlist__name{
+            align-items: flex-start;
+            display: flex;
+            flex-direction: column;
+            justify-content: end;
+            height: 70%;
+        }
+
+        .container__playlist__name :is(h1, p){
+            color: $white-font-color;
+            font-family: $main-title;
+            margin-left: 15px;
+            margin-top: 15px;
+        }
+
+        .container__playlist__name h1{           
+            font-size: 2.5rem;
+        }
+
+        .container__playlist__name p{
+            color: $white-font-color;
+        }
+        
+    }
+
+    
+    
+
+   
+    
+
+    
+    
     
 }

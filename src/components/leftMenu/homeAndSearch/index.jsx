@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faHouse, faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons"
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import { getToken } from "../../../functions.js"
 
 
 export default function HomeAndSearch() {
