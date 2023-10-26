@@ -40,3 +40,7 @@ export const getPlaylistById = async (id) => {
     return playlist
 }
 
+export async function selectPlaylist(id, navigate){
+    let selectedPlaylist = await getPlaylistById(id)
+    navigate('/home/:access_token/selectedPlaylist', {state: selectedPlaylist})
+}
