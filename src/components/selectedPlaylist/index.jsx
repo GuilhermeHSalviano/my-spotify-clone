@@ -3,7 +3,6 @@ import { useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import PlaylistTracks from './playlistTracks/index.jsx';
-import { faLocationCrosshairs } from '@fortawesome/free-solid-svg-icons';
 
 export default function SelectedPlaylist() {
     let location = useLocation()

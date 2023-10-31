@@ -1,4 +1,60 @@
+@import "../../../generalMixins.scss";
+@import "../../../generalVariables.scss";
+
+
 .container{
+    display: flex;
+    flex-direction: column;
+    height: 50%;
     overflow: auto;
     width: 100%;
+
+    .container__row{
+        color: $white-font-color;
+        display: flex;
+        justify-content: start;
+
+        td{
+            margin: .8% 0 .8% 0;
+        }
+
+        th{
+            text-align: start;
+        }
+
+        :is(td:first-child, th:first-child){
+            width: 5%;
+        }
+
+        :is(th:nth-child(2), td:nth-child(2)){
+            width: 30%;
+        }
+
+        :is(th:nth-child(3), td:nth-child(3)){
+            width: 20%;
+        }
+
+        :is(th:nth-child(4), td:nth-child(4)){
+            width: 10%;
+        }
+
+        td:nth-child(2){
+            display: flex;
+        }
+
+        td:nth-child(2) div{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            margin-left: 8%;
+        }
+
+        
+
+        img{
+            object-fit: contain;
+            width: 15%;
+        }
+    }
 }
+
