@@ -44,3 +44,13 @@ export async function selectPlaylist(id, navigate){
     let selectedPlaylist = await getPlaylistById(id)
     navigate('/home/:access_token/selectedPlaylist', {state: selectedPlaylist})
 }
+
+export function milisecondsConverter(miliseconds){
+    let min = Math.floor((miliseconds/1000/60) << 0)
+    let sec = Math.floor((miliseconds/1000) % 60)
+    if(sec.length == 1){
+        sec = `0${sec}`
+        console.log(sec)
+    }
+    return `${min}:${sec}`
+}
