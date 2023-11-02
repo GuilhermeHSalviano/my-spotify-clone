@@ -9,78 +9,101 @@
     overflow: auto;
     width: 100%;
 
-    .container__row{
-        color: $white-font-color;
-        font-family: $main-title;
-        display: flex;
-        justify-content: start;
-        width: 100%;
-        
-        td:nth-child(3), td:nth-child(4), td:nth-child(5){
-            color: $grey-font;
-            font-size: .8rem;
-        }
+    
 
-        :is(td:first-child, th:first-child){
-            padding-left: 2rem;
-            width: 1rem;
-        }
+    .container__header{
+        @include row;
 
-        :is(th:nth-child(2)){
-            width: 18rem;
-        }
-
-        :is(th:nth-child(3), td:nth-child(3)){
-            width: 20rem;
-        }
-
-        :is(th:nth-child(4), td:nth-child(4)){
-            width: 10rem;
-        }
-
-        td:nth-child(2){
-            display: flex;
-        }
-
-        td:nth-child(2) div{
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            margin-left: 8%;
-
-            p:nth-child(2){
-                color: $grey-font;
-                font-size: .8rem;
-            }
-        }
-
-        img{
-            object-fit: contain;
-            width: 15%;
-        }
-    }
-
-    #container__header{
         background-color: $secondary-background;
-        border-bottom: solid 1px $hover-grey;
-        position: fixed;
-        display: flex;
+        border-bottom: solid $hover-grey 1px;
         height: 2rem;
-        width: 100%;
+
+
+        color: $white-font-color;
+        position: fixed;
 
         th{
-            text-align: start;
+            @include all__cells;
         }
+
+        th:first-child{
+            @include row__first__cell;
+        }
+
+        th:nth-child(2){
+            @include row__second__cell;
+        }
+
+        th:nth-child(3){
+            @include row__third__cell
+        }
+
+        th:nth-child(4){
+            @include row__forth__cell;
+        }
+
     }
 
     .container__body{
-        margin-top: 4rem;
+        margin-top: 3rem;
 
-        td:nth-child(2){
-            width: 18rem;
+        .container__tr{
+            @include row;
+            padding-bottom: 1rem;
+
+            
+            td:first-child{
+                @include row__first__cell;
+                color: $grey-font;
+            }
+    
+            td:nth-child(2){
+                @include row__second__cell;
+                
+                display: flex;
+
+                img{
+                    object-fit: contain;
+                    width: 3.5rem;
+                }
+
+                div{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+
+                    
+                    p{
+                        color: $grey-font;
+                        margin-left: 1rem;
+                    }
+
+                    p:first-child{
+                        color: $white-font-color;
+                        font-size: 1rem;
+                    }
+
+                }
+            }
+
+            td:nth-child(3){
+                @include row__third__cell;
+                color: $grey-font;
+            }
+
+            td:nth-child(4){
+                @include row__forth__cell;
+                color: $grey-font;
+            }
+
+            td:nth-child(5){
+                color: $grey-font;
+            }
         }
-
     }
+
+    
+  
     
 }
 

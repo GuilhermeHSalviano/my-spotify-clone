@@ -9,8 +9,8 @@ export default function PlaylistTracks({playlist}) {
     } else{    
         return (
             <table className={styles.container}>
-                <thead className={styles.container__row} id={styles.container__header}>
-                    <tr>
+                <thead >
+                    <tr className={styles.container__header}>
                         <th>#</th>
                         <th>Title</th>
                         <th>Album</th>
@@ -22,12 +22,12 @@ export default function PlaylistTracks({playlist}) {
                     {playlist.tracks.items.map((playlist) => {
                         count += 1
                         return(
-                            <tr className={styles.container__row} key={playlist.track.id}>
+                            <tr key={playlist.track.id} className={styles.container__tr}>
                                 <td>{count}</td>
                                 <td>
                                     <img src={playlist.track.album.images[1].url} alt="Foto da capa do álbum" />
                                     <div>
-                                        <p>{playlist.track.name}</p>
+                                        <p id={styles.track__name}>{playlist.track.name}</p>
                                         <p>{playlist.track.artists[0].name}</p>
                                     </div>
                                 </td>

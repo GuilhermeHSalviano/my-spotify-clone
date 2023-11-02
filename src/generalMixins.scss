@@ -32,4 +32,40 @@
     display: flex;
 }
 
+//Table mixins
+
+@mixin row{
+    font-family: $main-title;
+    display: flex;
+    padding-left: 2rem;
+    width: 100%;
+}
+
+@mixin all__cells{
+    text-align: start;
+}
+
+
+@mixin row__first__cell{
+    font-size: .8rem;
+    width: 2rem;
+}
+
+@mixin row__second__cell{
+    font-size: .8rem;
+    width: 20rem;
+}
+
+@mixin row__third__cell{
+    font-size: .8rem;
+    width: 20rem;
+}
+
+@mixin row__forth__cell{
+    font-size: .8rem;
+    width: 13rem;
+}
+
+
+
 

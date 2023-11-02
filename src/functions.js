@@ -48,9 +48,8 @@ export async function selectPlaylist(id, navigate){
 export function milisecondsConverter(miliseconds){
     let min = Math.floor((miliseconds/1000/60) << 0)
     let sec = Math.floor((miliseconds/1000) % 60)
-    if(sec.length == 1){
+    if(sec < 10){
         sec = `0${sec}`
-        console.log(sec)
     }
     return `${min}:${sec}`
 }
