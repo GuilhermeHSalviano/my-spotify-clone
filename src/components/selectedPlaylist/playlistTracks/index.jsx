@@ -14,15 +14,16 @@ export default function PlaylistTracks({playlist}) {
     }, [playlist]);
 
     function sortByTrackName(){
-        setTracks(tracks.sort((a, b)=>{
+        let songs = [...tracks]
+        songs = songs.sort((a, b)=>{
             if(a.track.name < b.track.name) return -1
             if(a.track.name > b.track.name) return 1
             return 0
-        }))
-
+        })
+        setTracks(songs)
     }    
 
-    if(!playlist){
+    if(!tracks){
         return ''
     } else{    
         return (
@@ -37,7 +38,7 @@ export default function PlaylistTracks({playlist}) {
               </tr>
             </thead>
             <tbody className={styles.container__body}>
-              {playlist.tracks.items.map((playlist) => {
+              {tracks.map((playlist) => {
                 count += 1;
                 return (
                   <tr key={playlist.track.id} className={styles.container__tr}>
