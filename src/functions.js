@@ -54,8 +54,13 @@ export function milisecondsConverter(miliseconds){
     return `${min}:${sec}`
 }
 
-export function toSortTracks(array, propertyChose){
-    array.sort((a, b) =>{
-        return a.propertyChose - b.propertyChose
-    })
+export function toSortTracks(array, firstProperty, secondProperty, order){
+    let songs = [...array];
+    
+    songs = songs.sort((a, b) => {
+      if (a[firstProperty][secondProperty] < b[firstProperty][secondProperty]) return order * (-1);
+      if (a[firstProperty][secondProperty] > b[firstProperty][secondProperty]) return order * (1);
+      return 0;
+    });
+    return songs
 }

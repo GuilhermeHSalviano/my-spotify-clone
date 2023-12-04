@@ -6,6 +6,7 @@ export default function PlaylistTracks({playlist}) {
     
 
     const [tracks, setTracks] = useState(playlist? playlist.tracks.items : "")
+    const [order, setOrder] = useState(+1)
 
     let count = 0
 
@@ -14,13 +15,9 @@ export default function PlaylistTracks({playlist}) {
     }, [playlist]);
 
     function sortByTrackName(){
-        let songs = [...tracks]
-        songs = songs.sort((a, b)=>{
-            if(a.track.name < b.track.name) return -1
-            if(a.track.name > b.track.name) return 1
-            return 0
-        })
+        let songs = toSortTracks(tracks, "track", "name", order)
         setTracks(songs)
+        setOrder(-order)
     }    
 
     if(!tracks){
