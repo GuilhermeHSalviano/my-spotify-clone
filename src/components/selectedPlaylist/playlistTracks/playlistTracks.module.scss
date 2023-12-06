@@ -24,6 +24,8 @@
 
         th{
             @include all__cells;
+
+            cursor: pointer;
         }
 
         th:first-child{

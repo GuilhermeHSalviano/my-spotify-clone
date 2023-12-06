@@ -1,12 +1,11 @@
 import styles from "./playlistTracks.module.scss"
-import { milisecondsConverter, toSortTracks } from "../../../functions.js"
+import { milisecondsConverter } from "../../../functions.js"
 import { useEffect, useState } from "react"
 
 export default function PlaylistTracks({playlist}) {
-    
 
     const [tracks, setTracks] = useState(playlist? playlist.tracks.items : "")
-    const [order, setOrder] = useState(+1)
+    const [trackOrder, setTrackOrder] = useState(+1)
 
     let count = 0
 
@@ -15,10 +14,44 @@ export default function PlaylistTracks({playlist}) {
     }, [playlist]);
 
     function sortByTrackName(){
-        let songs = toSortTracks(tracks, "track", "name", order)
+        let songs = [...tracks]
+        songs = songs.sort((a, b) => {
+          if( a.track.name < b.track.name) return trackOrder * (-1)
+          if (a.track.name > b.track.name) return trackOrder * 1
+          return 0
+        })
         setTracks(songs)
-        setOrder(-order)
-    }    
+        setTrackOrder(-trackOrder)
+    }  
+    
+    function sortByAlbum(){
+      let songs = [...tracks]
+      songs = songs.sort((a, b) => {
+        if (a.track.album.name < b.track.album.name) return trackOrder * -1;
+        if (a.track.album.name > b.track.album.name) return trackOrder * 1;
+        return 0;
+      });
+      setTracks(songs)
+      setTrackOrder(-trackOrder)
+    }
+
+    function sortByDataAdded(){
+      let songs = [...tracks];
+      songs = songs.sort((a, b) => new Date(b.date) - new Date(a.date))
+      setTracks(songs)
+      setTrackOrder(-trackOrder)
+    }
+
+    function sortByDuration(){
+      let songs = [...tracks];
+      songs = songs.sort((a, b) => {
+        if (a.track.duration_ms < b.track.duration_ms) return trackOrder * -1;
+        if (a.track.duration_ms > b.track.duration_ms) return trackOrder * 1;
+        return 0;
+      });
+      setTracks(songs);
+      setTrackOrder(-trackOrder);
+    }
 
     if(!tracks){
         return ''
@@ -29,9 +62,9 @@ export default function PlaylistTracks({playlist}) {
               <tr className={styles.container__header}>
                 <th>#</th>
                 <th onClick={() => sortByTrackName()}>Title</th>
-                <th>Album</th>
-                <th>Data added</th>
-                <th>Duration</th>
+                <th onClick={() => sortByAlbum()}>Album</th>
+                <th onClick={() => sortByDataAdded()}>Data added</th>
+                <th onClick={() => sortByDuration()}>Duration</th>
               </tr>
             </thead>
             <tbody className={styles.container__body}>
