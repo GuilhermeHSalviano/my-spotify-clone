@@ -1,5 +1,5 @@
 import styles from "./playlistTracks.module.scss"
-import { milisecondsConverter } from "../../../functions.js"
+import { milisecondsConverter, turnDateObjectIntoString } from "../../../functions.js"
 import { useEffect, useState } from "react"
 
 export default function PlaylistTracks({playlist}) {
@@ -37,7 +37,11 @@ export default function PlaylistTracks({playlist}) {
 
     function sortByDataAdded(){
       let songs = [...tracks];
-      songs = songs.sort((a, b) => new Date(b.date) - new Date(a.date))
+      songs = songs.sort((a, b) => {
+        if (a.added_at < b.added_at) return trackOrder * -1;
+        if (a.added_at > b.added_at) return trackOrder * 1;
+          return 0;
+      })
       setTracks(songs)
       setTrackOrder(-trackOrder)
     }
@@ -61,10 +65,18 @@ export default function PlaylistTracks({playlist}) {
             <thead>
               <tr className={styles.container__header}>
                 <th>#</th>
-                <th onClick={() => sortByTrackName()}>Title</th>
-                <th onClick={() => sortByAlbum()}>Album</th>
-                <th onClick={() => sortByDataAdded()}>Data added</th>
-                <th onClick={() => sortByDuration()}>Duration</th>
+                <th>
+                  <span onClick={() => sortByTrackName()}>Title</span>
+                </th>
+                <th>
+                  <span onClick={() => sortByAlbum()}>Album</span>
+                </th>
+                <th>
+                  <span onClick={() => sortByDataAdded()}>Data added</span>
+                </th>
+                <th>
+                  <span onClick={() => sortByDuration()}>Duration</span>
+                </th>
               </tr>
             </thead>
             <tbody className={styles.container__body}>
@@ -84,7 +96,7 @@ export default function PlaylistTracks({playlist}) {
                       </div>
                     </td>
                     <td>{playlist.track.album.name}</td>
-                    <td>{playlist.added_at}</td>
+                    <td>{turnDateObjectIntoString(playlist.added_at)}</td>
                     <td>{milisecondsConverter(playlist.track.duration_ms)}</td>
                   </tr>
                 );

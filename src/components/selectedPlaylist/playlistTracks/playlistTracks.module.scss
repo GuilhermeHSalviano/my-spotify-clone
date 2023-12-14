@@ -25,7 +25,9 @@
         th{
             @include all__cells;
 
-            cursor: pointer;
+            span{
+                cursor: pointer;
+            }
         }
 
         th:first-child{

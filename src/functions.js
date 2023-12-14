@@ -54,3 +54,7 @@ export function milisecondsConverter(miliseconds){
     return `${min}:${sec}`
 }
 
+export function turnDateObjectIntoString(date){
+    return new Date(date).toLocaleDateString()
+}
+
