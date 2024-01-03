@@ -7,8 +7,10 @@ import { selectPlaylist } from "../../../../functions.js"
 import { useNavigate } from "react-router-dom";
 
 export default function Playlists() {
-	let [playlists] = useState(useContext(playlistsContext))
-	const navigate = useNavigate()
+	const navigate = useNavigate();
+	let [context] = useState(useContext(playlistsContext))
+	let [playlists] = useState(context.playlists)
+
 
 	
 	

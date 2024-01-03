@@ -53,6 +53,7 @@
 
         .container__tr{
             @include row;
+            cursor: pointer;
             padding-bottom: 1rem;
 
             
@@ -103,6 +104,10 @@
             td:nth-child(5){
                 color: $grey-font;
             }
+        }
+
+        .container__tr:hover{
+            opacity: 40%;
         }
     }
 

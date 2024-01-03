@@ -1,11 +1,13 @@
 import styles from "./playlistTracks.module.scss"
 import { milisecondsConverter, turnDateObjectIntoString } from "../../../functions.js"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
+import { playlistsContext } from "../../../pages/homePage/index.jsx"
 
 export default function PlaylistTracks({playlist}) {
 
     const [tracks, setTracks] = useState(playlist? playlist.tracks.items : "")
     const [trackOrder, setTrackOrder] = useState(+1)
+    const{selectSong} = useContext(playlistsContext)
 
     let count = 0
 
@@ -66,7 +68,7 @@ export default function PlaylistTracks({playlist}) {
               <tr className={styles.container__header}>
                 <th>#</th>
                 <th>
-                  <span onClick={() => sortByTrackName()}>Title</span>
+                  <span onClick={()=>{ sortByTrackName(); selectSong()}}>Title</span>
                 </th>
                 <th>
                   <span onClick={() => sortByAlbum()}>Album</span>

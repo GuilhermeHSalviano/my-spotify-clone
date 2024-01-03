@@ -1,20 +1,30 @@
 import LeftMenu from "../../components/leftMenu/index.jsx"
 import styles from "./homePage.module.scss"
+import MyFooter from "../../components/myFooter/index.jsx"
 import { Outlet } from 'react-router-dom'
-import { createContext, useContext } from "react"
-
+import { createContext, useState } from "react"
 
 export const playlistsContext = createContext()
 
-
 export default function HomePage({playlists}) {
 
+  const [songSelected, setSongSelected] = useState("");
+
+  const selectSong = (song) => {
+    console.log('teste')
+    //setSongSelected(song);
+  };
+
+
 	return (
-		<main className={styles.container}>
-			<playlistsContext.Provider value={playlists}>
-				<LeftMenu/>
-				<Outlet/>
-			</playlistsContext.Provider>
-		</main>
-	)
+    <>
+      <playlistsContext.Provider value={{playlists, selectSong}}>
+          <main className={styles.container}>
+            <LeftMenu />
+            <Outlet />
+          </main>
+          <MyFooter />
+      </playlistsContext.Provider>
+    </>
+  );
 }
