@@ -1,5 +1,10 @@
 .container{
     background-color: black;
+    display: flex;
     height: 12vh;
     width: 100%;
+
+    .container__folder{
+        height: 100%;
+    }
 }

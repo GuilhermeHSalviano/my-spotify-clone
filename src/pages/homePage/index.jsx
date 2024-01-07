@@ -8,11 +8,10 @@ export const playlistsContext = createContext()
 
 export default function HomePage({playlists}) {
 
-  const [songSelected, setSongSelected] = useState("");
+  const [selectedSong, setSelectedSong] = useState("");
 
   const selectSong = (song) => {
-    console.log('teste')
-    //setSongSelected(song);
+    setSelectedSong(song);
   };
 
 
@@ -23,7 +22,7 @@ export default function HomePage({playlists}) {
             <LeftMenu />
             <Outlet />
           </main>
-          <MyFooter />
+          <MyFooter selectedSong={selectedSong}/>
       </playlistsContext.Provider>
     </>
   );

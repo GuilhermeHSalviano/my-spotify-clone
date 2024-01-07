@@ -68,7 +68,7 @@ export default function PlaylistTracks({playlist}) {
               <tr className={styles.container__header}>
                 <th>#</th>
                 <th>
-                  <span onClick={()=>{ sortByTrackName(); selectSong()}}>Title</span>
+                  <span onClick={()=> sortByTrackName()}>Title</span>
                 </th>
                 <th>
                   <span onClick={() => sortByAlbum()}>Album</span>
@@ -85,7 +85,11 @@ export default function PlaylistTracks({playlist}) {
               {tracks.map((playlist) => {
                 count += 1;
                 return (
-                  <tr key={playlist.track.id} className={styles.container__tr}>
+                  <tr 
+                    key={playlist.track.id} 
+                    className={styles.container__tr}
+                    onClick={() => selectSong(playlist)}
+                  >
                     <td>{count}</td>
                     <td>
                       <img
