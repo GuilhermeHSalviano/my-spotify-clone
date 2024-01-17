@@ -1,3 +1,5 @@
+@import "../../generalVariables.scss";
+
 .container{
     background-color: black;
     display: flex;
@@ -5,6 +7,42 @@
     width: 100%;
 
     .container__folder{
+        align-items: center;
+        padding-left: 7px;
+        display: flex;
         height: 100%;
+
+        img{
+            border-radius: 5px;
+            height: 80%;
+            object-fit: contain;
+        }
+
+        .container__folder__band{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            height: 80%;
+            justify-content: space-around;
+            padding-left: 2rem;
+            overflow-x: hidden;
+            width: 20rem;
+
+            p{
+                font-family: $main-title;
+                white-space: nowrap;
+            }
+
+            p:first-child{
+                color: $white-font-color;
+            }
+
+            p:nth-child(2){
+                color: $grey-font;
+                font-size: small;
+            }
+        }
     }
+
+
 }
