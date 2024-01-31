@@ -24,7 +24,7 @@
             flex-wrap: nowrap;
             height: 80%;
             justify-content: space-around;
-            padding-left: 2rem;
+            margin-left: 2rem;
             overflow-x: hidden;
             width: 20rem;
 
@@ -35,14 +35,17 @@
 
             p:first-child{
                 color: $white-font-color;
+                transform-box: border-box;
             }
-
+           
             p:nth-child(2){
                 color: $grey-font;
                 font-size: small;
             }
+            .teste{
+                background-color: green;
+            }
+            
         }
     }
-
-
 }

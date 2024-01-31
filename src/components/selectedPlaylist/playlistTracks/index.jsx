@@ -59,6 +59,24 @@ export default function PlaylistTracks({playlist}) {
       setTrackOrder(-trackOrder);
     }
 
+    function songNameAnimation(string){
+
+      let name = document.querySelector("[data-name]");
+      name.classList.add('teste')
+
+      /*let duration = (string.length * 10) / 45;
+      if(string.length > 15){
+        name.classList.add('p-transform')
+        name.style.transform = 'translateX(-320px)'
+        name.style.transitionDuration = `${duration}s`
+        name.style.transitionTimingFunction = "linear"
+        
+      } else{
+        name.style.transform = "translate(0)"
+        name.style.transitionDuration = `0s`;
+      }*/
+    }
+
     if(!tracks){
         return ''
     } else{    
@@ -88,7 +106,7 @@ export default function PlaylistTracks({playlist}) {
                   <tr 
                     key={playlist.track.id} 
                     className={styles.container__tr}
-                    onClick={() => selectSong(playlist)}
+                    onClick={() => {selectSong(playlist); songNameAnimation(playlist.track.name)}}
                   >
                     <td>{count}</td>
                     <td>
