@@ -21,7 +21,6 @@
         .container__folder__band{
             display: flex;
             flex-direction: column;
-            flex-wrap: nowrap;
             height: 80%;
             justify-content: space-around;
             margin-left: 2rem;
@@ -30,6 +29,7 @@
 
             p{
                 font-family: $main-title;
+                width: 100%;
                 white-space: nowrap;
             }
 
@@ -42,8 +42,9 @@
                 color: $grey-font;
                 font-size: small;
             }
-            .teste{
-                background-color: green;
+            .p-animation-active{
+                transform: translateX(-200%);
+                transition-duration: 10s;
             }
             
         }

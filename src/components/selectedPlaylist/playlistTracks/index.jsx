@@ -3,6 +3,8 @@ import { milisecondsConverter, turnDateObjectIntoString } from "../../../functio
 import { useEffect, useState, useContext } from "react"
 import { playlistsContext } from "../../../pages/homePage/index.jsx"
 
+import style2 from "../../myFooter/myFooter.module.scss"
+
 export default function PlaylistTracks({playlist}) {
 
     const [tracks, setTracks] = useState(playlist? playlist.tracks.items : "")
@@ -62,19 +64,14 @@ export default function PlaylistTracks({playlist}) {
     function songNameAnimation(string){
 
       let name = document.querySelector("[data-name]");
-      name.classList.add('teste')
-
-      /*let duration = (string.length * 10) / 45;
-      if(string.length > 15){
-        name.classList.add('p-transform')
-        name.style.transform = 'translateX(-320px)'
-        name.style.transitionDuration = `${duration}s`
-        name.style.transitionTimingFunction = "linear"
-        
+      if(string.length >= 45){
+        name.classList.remove(style2["p-animation-active"]);
+        void name.offsetWidth;
+        name.classList.add(style2["p-animation-active"]);
+        console.log('teste' + name.getBoundingClientRect().width)
       } else{
-        name.style.transform = "translate(0)"
-        name.style.transitionDuration = `0s`;
-      }*/
+        name.classList.remove(style2["p-animation-active"]);
+      }
     }
 
     if(!tracks){

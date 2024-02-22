@@ -18,15 +18,15 @@ export default function MyFooter({selectedSong}) {
 	}, [selectedSong])
 
 	return (
-		<footer className={styles.container}>
-			<div className={styles.container__folder}>
-				<img src={albumImage} alt="foto do álbum da música selecionada" />
-				<div className={styles.container__folder__band}>
-					<p data-name>{name}</p>
-					<p>{band}</p>
-				</div>
-			</div>
-		</footer>
-	);
+    <footer className={styles.container}>
+      <div className={styles.container__folder}>
+        <img src={albumImage} alt="foto do álbum da música selecionada" />
+        <div className={styles.container__folder__band}>
+          <p data-name>{name}</p>
+          <p>{band}</p>
+        </div>
+      </div>
+    </footer>
+  );
 	
 }
