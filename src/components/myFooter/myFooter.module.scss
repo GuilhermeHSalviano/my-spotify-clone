@@ -1,5 +1,9 @@
 @import "../../generalVariables.scss";
 
+:root{
+    --duration: 10s;
+}
+
 .container{
     background-color: black;
     display: flex;
@@ -11,12 +15,15 @@
         padding-left: 7px;
         display: flex;
         height: 100%;
+        overflow: hidden;
+        width: 30rem;
 
         img{
             border-radius: 5px;
             height: 80%;
             object-fit: contain;
         }
+
 
         .container__folder__band{
             display: flex;
@@ -25,7 +32,6 @@
             justify-content: space-around;
             margin-left: 2rem;
             overflow-x: hidden;
-            width: 20rem;
 
             p{
                 font-family: $main-title;
@@ -34,6 +40,7 @@
             }
 
             p:first-child{
+                display: inline;
                 color: $white-font-color;
                 transform-box: border-box;
             }
@@ -44,7 +51,15 @@
             }
             .p-animation-active{
                 transform: translateX(-200%);
-                transition-duration: 10s;
+                transition-duration: var(--duration);
+                transition-timing-function: linear;
+                transition-delay: 2s;
+            }
+
+            .p-animation-active-reverse{
+                transform: translateX(200%);
+                transition-duration: var(--duration);
+                transition-timing-function: linear;
             }
             
         }

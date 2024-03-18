@@ -2,7 +2,6 @@ import styles from "./playlistTracks.module.scss"
 import { milisecondsConverter, turnDateObjectIntoString } from "../../../functions.js"
 import { useEffect, useState, useContext } from "react"
 import { playlistsContext } from "../../../pages/homePage/index.jsx"
-
 import style2 from "../../myFooter/myFooter.module.scss"
 
 export default function PlaylistTracks({playlist}) {
@@ -62,13 +61,14 @@ export default function PlaylistTracks({playlist}) {
     }
 
     function songNameAnimation(string){
-
       let name = document.querySelector("[data-name]");
-      if(string.length >= 45){
+      if(string.length >= 15){
+        let duration = (name.offsetWidth * 20) / 299
+        document.documentElement.style.setProperty('--duration', `${duration}s`)
+        console.log(duration)
         name.classList.remove(style2["p-animation-active"]);
         void name.offsetWidth;
         name.classList.add(style2["p-animation-active"]);
-        console.log('teste' + name.getBoundingClientRect().width)
       } else{
         name.classList.remove(style2["p-animation-active"]);
       }
