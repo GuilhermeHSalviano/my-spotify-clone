@@ -64,6 +64,7 @@ export default function PlaylistTracks({playlist}) {
       let name = document.querySelector("[data-name]");
       if(string.length >= 15){
         let duration = (name.offsetWidth * 20) / 299
+        //This is how I change a value to a variable defined in root of the DOM
         document.documentElement.style.setProperty('--duration', `${duration}s`)
         console.log(duration)
         name.classList.remove(style2["p-animation-active"]);

@@ -22,7 +22,9 @@ export default function MyFooter({selectedSong}) {
       <div className={styles.container__folder}>
         <img src={albumImage} alt="foto do álbum da música selecionada" />
         <div className={styles.container__folder__band}>
-          <p data-name>{name}</p>
+          <div data-name>
+            <p>{name}</p>
+          </div>
           <p>{band}</p>
         </div>
       </div>
