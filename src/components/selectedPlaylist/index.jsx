@@ -9,7 +9,8 @@ export default function SelectedPlaylist() {
     let [playlistName, setPlaylistName] = useState('')
     let [playlistPicture, setPlaylistPicture] = useState('')
     let [isPublic, setIsPublic] = useState('')
-    let [playlistAuthorAndTrackNumber, setPlaylistAuthorAndTrackNumber] = useState('')
+    let [playlistAuthorAndTrackNumber, setPlaylistAuthorAndTrackNumber] = useState('');
+    let [inputSearch, setInputSearch] = useState('');
     useEffect(()=>{
         if(location.state != null){
             setPlaylistName(location.state.name)
@@ -19,6 +20,11 @@ export default function SelectedPlaylist() {
 
         } 
     }, [location])
+
+    const inputFilter = (inputText) => {
+        setInputSearch(inputText.target.value);
+        console.log(inputSearch);
+    }
     
 
     return (
@@ -33,6 +39,9 @@ export default function SelectedPlaylist() {
                     <h1>{playlistName}</h1>
                     <p>{playlistAuthorAndTrackNumber}</p>
                 </div>
+            </div>
+             <div className={styles.container__input}>
+                    <input type="text" onChange={(event) => inputFilter(event) }/>
             </div>
             <PlaylistTracks 
                 playlist={location.state != null? location.state : ''}
