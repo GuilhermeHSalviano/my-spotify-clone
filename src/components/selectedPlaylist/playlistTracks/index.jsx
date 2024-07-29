@@ -4,7 +4,7 @@ import { useEffect, useState, useContext } from "react"
 import { playlistsContext } from "../../../pages/homePage/index.jsx"
 import style2 from "../../myFooter/myFooter.module.scss"
 
-export default function PlaylistTracks({playlist}) {
+export default function PlaylistTracks({playlist, inputSearchField}) {
 
     const [tracks, setTracks] = useState(playlist? playlist.tracks.items : "")
     const [trackOrder, setTrackOrder] = useState(+1)
@@ -14,7 +14,8 @@ export default function PlaylistTracks({playlist}) {
 
     useEffect(() => {
         setTracks(playlist ? playlist.tracks.items : "");
-    }, [playlist]);
+        inputFilter();
+    }, [playlist, inputSearchField]);
 
     function sortByTrackName(){
         let songs = [...tracks]
@@ -25,7 +26,7 @@ export default function PlaylistTracks({playlist}) {
         })
         setTracks(songs)
         setTrackOrder(-trackOrder)
-    }  
+    } ; 
     
     function sortByAlbum(){
       let songs = [...tracks]
@@ -36,7 +37,7 @@ export default function PlaylistTracks({playlist}) {
       });
       setTracks(songs)
       setTrackOrder(-trackOrder)
-    }
+    };
 
     function sortByDataAdded(){
       let songs = [...tracks];
@@ -47,7 +48,7 @@ export default function PlaylistTracks({playlist}) {
       })
       setTracks(songs)
       setTrackOrder(-trackOrder)
-    }
+    };
 
     function sortByDuration(){
       let songs = [...tracks];
@@ -58,7 +59,7 @@ export default function PlaylistTracks({playlist}) {
       });
       setTracks(songs);
       setTrackOrder(-trackOrder);
-    }
+    };
 
     function songNameAnimation(string){
       let name = document.querySelector("[data-name]");
@@ -73,7 +74,22 @@ export default function PlaylistTracks({playlist}) {
       } else{
         name.classList.remove(style2["p-animation-active"]);
       }
-    }
+    };
+
+    function inputFilter(inputSearchField){
+      if(inputSearchField == ''){
+        setTracks(playlist.tracks.items);
+      }  else{
+        console.log('teste');
+        /*let filteredPlaylist = [];
+        playlist.tracks.items.forEach(item =>{
+          if(playlist.tracks.items.track.name.toLowerCase().includes(inputSearchField) || playlist.track.artists[0].name.toLowerCase().includes(inputSearchField)){
+            filteredPlaylist.push(item);
+          };
+        });
+        setTracks(filteredPlaylist);*/
+      }
+    };
 
     if(!tracks){
         return ''
