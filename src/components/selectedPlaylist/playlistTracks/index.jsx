@@ -14,7 +14,7 @@ export default function PlaylistTracks({playlist, inputSearchField}) {
 
     useEffect(() => {
         setTracks(playlist ? playlist.tracks.items : "");
-        inputFilter();
+        inputFilter(inputSearchField.toLowerCase());
     }, [playlist, inputSearchField]);
 
     function sortByTrackName(){
@@ -77,17 +77,17 @@ export default function PlaylistTracks({playlist, inputSearchField}) {
     };
 
     function inputFilter(inputSearchField){
-      if(inputSearchField == ''){
+      if(inputSearchField == ""){
         setTracks(playlist.tracks.items);
+        console.log("input vazio");
       }  else{
-        console.log('teste');
-        /*let filteredPlaylist = [];
+        let filteredPlaylist = [];
         playlist.tracks.items.forEach(item =>{
-          if(playlist.tracks.items.track.name.toLowerCase().includes(inputSearchField) || playlist.track.artists[0].name.toLowerCase().includes(inputSearchField)){
+          if(item.track.name.toLowerCase().includes(inputSearchField) || item.track.album.artists[0].name.toLowerCase().includes(inputSearchField)){
             filteredPlaylist.push(item);
           };
         });
-        setTracks(filteredPlaylist);*/
+        setTracks(filteredPlaylist);
       }
     };
 
