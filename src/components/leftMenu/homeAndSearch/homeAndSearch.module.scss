@@ -31,9 +31,7 @@
 
     .container__link:hover{
         cursor: pointer;
-        opacity: 50%;
-        transition-duration: 0.6s;
-        transition-timing-function: ease-in-out;
+        @include buttons;
         
         .container__icon{
             cursor: pointer;

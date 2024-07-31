@@ -1,8 +1,10 @@
-import styles from './selectedPlaylist.module.scss'
+import styles from './selectedPlaylist.module.scss';
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import PlaylistTracks from './playlistTracks/index.jsx';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 export default function SelectedPlaylist() {
     let location = useLocation()
@@ -27,25 +29,27 @@ export default function SelectedPlaylist() {
     
 
     return (
-        <div className={styles.container}>
-            <div className={styles.container__playlist}>
-                <img src={playlistPicture} 
-                    alt="imagem de quatro álbuns pertencentes à playlist" 
-                    className={styles.container__img} 
-                />
-                <div className={styles.container__playlist__name}>
-                    <p>{isPublic}</p>
-                    <h1>{playlistName}</h1>
-                    <p>{playlistAuthorAndTrackNumber}</p>
-                </div>
-            </div>
-             <div className={styles.container__input}>
-                    <input type="text" onChange={(event) => inputEventHandler(event) }/>
-            </div>
-            <PlaylistTracks 
-                playlist={location.state != null? location.state : ''}
-                inputSearchField = {inputSearchField} 
-            />
+      <div className={styles.container}>
+        <div className={styles.container__playlist}>
+          <img
+            src={playlistPicture}
+            alt="imagem de quatro álbuns pertencentes à playlist"
+            className={styles.container__img}
+          />
+          <div className={styles.container__playlist__name}>
+            <p>{isPublic}</p>
+            <h1>{playlistName}</h1>
+            <p>{playlistAuthorAndTrackNumber}</p>
+          </div>
         </div>
-    )
+        <div className={styles.container__input}>
+          <FontAwesomeIcon className={styles.input__magnifyingGlass} icon={faMagnifyingGlass}/>
+          <input type="text" onChange={(event) => inputEventHandler(event)} />
+        </div>
+        <PlaylistTracks
+          playlist={location.state != null ? location.state : ""}
+          inputSearchField={inputSearchField}
+        />
+      </div>
+    );
 }
