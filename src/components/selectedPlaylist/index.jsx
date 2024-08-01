@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import PlaylistTracks from './playlistTracks/index.jsx';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { useRef } from 'react';
 
 export default function SelectedPlaylist() {
     let location = useLocation()
@@ -13,6 +14,7 @@ export default function SelectedPlaylist() {
     let [isPublic, setIsPublic] = useState('')
     let [playlistAuthorAndTrackNumber, setPlaylistAuthorAndTrackNumber] = useState('');
     let [inputSearchField, setInputSearchField] = useState('');
+    const input = useRef(null);
     useEffect(()=>{
         if(location.state != null){
             setPlaylistName(location.state.name)
@@ -26,8 +28,11 @@ export default function SelectedPlaylist() {
     const inputEventHandler = (inputText) => {
         setInputSearchField(inputText.target.value);
     }
-    
 
+    function toggleInput(){
+      input.current.classList.toggle(styles["input-inactive"]);         
+    }
+    
     return (
       <div className={styles.container}>
         <div className={styles.container__playlist}>
@@ -43,8 +48,8 @@ export default function SelectedPlaylist() {
           </div>
         </div>
         <div className={styles.container__input}>
-          <FontAwesomeIcon className={styles.input__magnifyingGlass} icon={faMagnifyingGlass}/>
-          <input type="text" onChange={(event) => inputEventHandler(event)} />
+          <FontAwesomeIcon className={styles.input__magnifyingGlass} icon={faMagnifyingGlass} onClick={toggleInput}/>
+          <input  type="text" onChange={(event) => inputEventHandler(event)} ref={input} />
         </div>
         <PlaylistTracks
           playlist={location.state != null ? location.state : ""}

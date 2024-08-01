@@ -70,8 +70,14 @@
 
         input{
             height: 1rem;
+            width: 10rem;
         }
 
+        .input-inactive{
+            display: none;
+            height: 0;
+            width: 0;
+        }
     }
     
 }
